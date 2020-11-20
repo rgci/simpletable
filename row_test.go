@@ -19,7 +19,7 @@ func TestRow_String(t *testing.T) {
 
 func TestRow_IsDivider(t *testing.T) {
 	d := &tblRow{
-		Cells: []cellInterface{&dividerCell{}},
+		Cells: []cellInterface{&DividerCell{}},
 		Table: New(),
 	}
 

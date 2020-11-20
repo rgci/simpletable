@@ -107,36 +107,36 @@ func TestCell_String4(t *testing.T) {
 }
 
 func TestDivider_Len(t *testing.T) {
-	d := &dividerCell{}
+	d := &DividerCell{}
 	d.setWidth(5)
 
 	if d.len() != 1 {
-		t.Error("Wrong *dividerCell length")
+		t.Error("Wrong *DividerCell length")
 	}
 }
 
 func TestDivider_IsSpanned(t *testing.T) {
-	d := &dividerCell{span: 1}
+	d := &DividerCell{span: 1}
 
 	if d.isSpanned() {
-		t.Error("*dividerCell must not be spanned")
+		t.Error("*DividerCell must not be spanned")
 	}
 }
 
 func TestDivider_IsSpanned2(t *testing.T) {
-	d := &dividerCell{span: 2}
+	d := &DividerCell{span: 2}
 
 	if !d.isSpanned() {
-		t.Error("*dividerCell must be spanned")
+		t.Error("*DividerCell must be spanned")
 	}
 }
 
 func TestDivider_SetWidth(t *testing.T) {
-	d := &dividerCell{}
+	d := &DividerCell{}
 	d.setWidth(5)
 
 	if d.width() != 1 {
-		t.Error("Wrong *dividerCell width")
+		t.Error("Wrong *DividerCell width")
 	}
 }
 
@@ -168,7 +168,7 @@ func TestDivider_String(t *testing.T) {
 	s := tbl.dividers[0].lines()[0]
 
 	if s != "+-----+-----+" {
-		t.Errorf("Wrong *dividerCell toString [%s]", s)
+		t.Errorf("Wrong *DividerCell toString [%s]", s)
 	}
 }
 
@@ -193,7 +193,7 @@ func TestDivider_String2(t *testing.T) {
 	s := tbl.dividers[0].lines()[0]
 
 	if s != "+-------+------+" {
-		t.Errorf("Wrong *dividerCell toString [%s]", s)
+		t.Errorf("Wrong *DividerCell toString [%s]", s)
 	}
 }
 

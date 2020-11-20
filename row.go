@@ -81,7 +81,7 @@ func (r *tblRow) resize() {
 // isDivider check if a row is divider (if first row cell is divider - row divider to)
 func (r *tblRow) isDivider() bool {
 	switch r.Cells[0].(type) {
-	case *dividerCell:
+	case *DividerCell:
 		return true
 	}
 

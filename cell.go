@@ -97,44 +97,44 @@ func (c *Cell) lines() []string {
 	return c.content.lines(c.Align)
 }
 
-// dividerCell is table divider cell
-type dividerCell struct {
+// DividerCell is table divider cell
+type DividerCell struct {
 	span     int          // Divider span
 	children []*emptyCell // Nested empty meta cells
 	column   *tblColumn   // Divider parent column
 }
 
-func (d *dividerCell) len() int {
+func (d *DividerCell) len() int {
 	return 1
 }
 
-func (d *dividerCell) isSpanned() bool {
+func (d *DividerCell) isSpanned() bool {
 	return d.span > 1
 }
 
-func (d *dividerCell) width() int {
+func (d *DividerCell) width() int {
 	return 1
 }
 
-func (d *dividerCell) setWidth(width int) {
+func (d *DividerCell) setWidth(width int) {
 }
 
-func (d *dividerCell) height() int {
+func (d *DividerCell) height() int {
 	return 1
 }
 
-func (d *dividerCell) setHeight(height int) {
+func (d *DividerCell) setHeight(height int) {
 }
 
-func (d *dividerCell) getColumn() *tblColumn {
+func (d *DividerCell) getColumn() *tblColumn {
 	return d.column
 }
 
-func (d *dividerCell) setColumn(column *tblColumn) {
+func (d *DividerCell) setColumn(column *tblColumn) {
 	d.column = column
 }
 
-func (d *dividerCell) lines() []string {
+func (d *DividerCell) lines() []string {
 	s := d.column.Table.style.Divider
 	c := &content{
 		c: []string{

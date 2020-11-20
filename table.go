@@ -15,7 +15,7 @@ type Table struct {
 	rows     []*tblRow
 	columns  []*tblColumn
 	spanned  []*Cell
-	dividers []*dividerCell
+	dividers []*DividerCell
 }
 
 //SetStyle sets table style
@@ -70,7 +70,7 @@ func (t *Table) refresh() {
 	t.rows = []*tblRow{}
 	t.columns = []*tblColumn{}
 	t.spanned = []*Cell{}
-	t.dividers = []*dividerCell{}
+	t.dividers = []*DividerCell{}
 }
 
 // borderTop returns top table border
@@ -147,7 +147,7 @@ func (t *Table) prepareRows() {
 			Table: t,
 		})
 
-		d := &dividerCell{
+		d := &DividerCell{
 			span: hlen,
 		}
 
@@ -172,7 +172,7 @@ func (t *Table) prepareRows() {
 
 	flen := len(t.Footer.Cells)
 	if flen > 0 {
-		d := &dividerCell{
+		d := &DividerCell{
 			span: hlen,
 		}
 
@@ -212,7 +212,7 @@ func (t *Table) prepareColumns() {
 				span = v.Span
 				p = v
 				tc = v
-			case *dividerCell:
+			case *DividerCell:
 				span = v.span
 				p = v
 			}
@@ -237,7 +237,7 @@ func (t *Table) prepareColumns() {
 				switch v := c.(type) {
 				case *Cell:
 					v.children = empty
-				case *dividerCell:
+				case *DividerCell:
 					v.children = empty
 				}
 			}
@@ -354,6 +354,6 @@ func New() *Table {
 		rows:     []*tblRow{},
 		columns:  []*tblColumn{},
 		spanned:  []*Cell{},
-		dividers: []*dividerCell{},
+		dividers: []*DividerCell{},
 	}
 }
